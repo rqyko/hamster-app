@@ -73,7 +73,7 @@ function closeSheet() {
   document.querySelector(".sheet").classList.add("sheet-out-of-view");
   document.querySelector("body").style.overflowY = "auto";
 
-  history.pushState(null, "", "/");
+  history.pushState(null, "", "https://net24rboland.gc-webhosting.nl/");
 }
 
 document.querySelector("#close-button").addEventListener("click", () => {
