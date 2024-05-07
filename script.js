@@ -73,7 +73,7 @@ function closeSheet() {
   document.querySelector(".sheet").classList.add("sheet-out-of-view");
   document.querySelector("body").style.overflowY = "auto";
 
-  history.pushState(null, "", "/index.html");
+  history.pushState(null, "", "/");
 }
 
 document.querySelector("#close-button").addEventListener("click", () => {
