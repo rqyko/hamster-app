@@ -1,0 +1,65 @@
+:root {
+    --mdc-theme-primary: #E84855;}
+
+body {
+    margin: 0;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+}
+
+.homebutton {
+    cursor: pointer;
+}
+
+.mdc-image-list--masonry {
+    column-count: 2;
+}
+
+.mdc-image-list--masonry li {
+    margin-bottom: 1em;
+}
+
+/* CSS for sheet */
+.sheet {
+    position: absolute;
+    top: 0;
+    width:  100vw;
+    margin-left: 0;
+    background-color: #2e2e2e;
+    transition: 0.3s ease;
+    padding-bottom: 100vh;
+}
+
+.sheet-out-of-view {
+    margin-left: -110%;
+}
+
+.sheet main {
+    min-height: calc(100vh - 56px - 48px);
+}
+
+.sheet img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--mdc-theme-primary)
+}
+
+footer .mdc-tab__icon {
+    color: white !important;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+/* CSS for sheet */

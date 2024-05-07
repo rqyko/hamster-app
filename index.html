@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <!-- Vereiste meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hamster</title>
+    <link rel="icon"] href="https://static.vecteezy.com/system/resources/previews/024/559/110/original/hamster-cute-free-png.png">
+
+    <!-- Material.io bestanden (CSS & Font/icons)-->
+    <!-- Uitleg werking componenents: https://material.io/components?platform=web -->
+    <!-- Demo van components:         https://material-components.github.io/material-components-web-catalog/#/ -->
+    <!-- Demo en uitleg icons:        https://fonts.google.com/icons?selected=Material+Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Material.io bestanden (JS en registratie componenten) -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>const MDCBanner = mdc.banner.MDCBanner;const MDCCheckbox = mdc.checkbox.MDCCheckbox;const MDCChip = mdc.chips.MDCChip;const MDCChipSet = mdc.chips.MDCChipSet;const MDCCircularProgress = mdc.circularProgress.MDCCircularProgress;const MDCDataTable = mdc.dataTable.MDCDataTable;const MDCDialog = mdc.dialog.MDCDialog;const MDCDrawer = mdc.drawer.MDCDrawer;const MDCFloatingLabel = mdc.floatingLabel.MDCFloatingLabel;const MDCFormField = mdc.formField.MDCFormField;const MDCIconButtonToggle = mdc.iconButton.MDCIconButtonToggle;const MDCLineRipple = mdc.lineRipple.MDCLineRipple;const MDCLinearProgress = mdc.linearProgress.MDCLinearProgress;const MDCList = mdc.list.MDCList;const MDCMenu = mdc.menu.MDCMenu;const MDCMenuSurface = mdc.menuSurface.MDCMenuSurface;const MDCNotchedOutline = mdc.notchedOutline.MDCNotchedOutline;const MDCRadio = mdc.radio.MDCRadio;const MDCRipple = mdc.ripple.MDCRipple;const MDCSegmentedButton = mdc.segmentedButton.MDCSegmentedButton;const MDCSelect = mdc.select.MDCSelect;const MDCSlider = mdc.slider.MDCSlider;const MDCSnackbar = mdc.snackbar.MDCSnackbar;const MDCSwitch = mdc.switchControl.MDCSwitch;const MDCTabBar = mdc.tabBar.MDCTabBar;const MDCTextField = mdc.textField.MDCTextField;const MDCTooltip = mdc.tooltip.MDCTooltip;const MDCTopAppBar = mdc.topAppBar.MDCTopAppBar;</script>
+    
+    <!-- Eigen CSS en Javascript -->
+    <script src="script.js" async></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<aside class="mdc-drawer mdc-drawer--modal">
+    <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+            <div class="mdc-drawer__header">
+                <img src="https://static.vecteezy.com/system/resources/previews/026/748/785/original/cute-little-hamster-png.png" class="mdc-drawer__header-logo logo" alt="Material Components Web">
+                <h3 class="mdc-drawer__title">Hamster</h3>
+                <h6 class="mdc-drawer__subtitle">opperbaas@hamsterhelpdesk.nl</h6>
+            </div>
+            <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0">
+                <span class="mdc-list-item__ripple"></span>
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+                <span class="mdc-list-item__text">Inbox</span>
+            </a>
+            <a class="mdc-list-item" href="#">
+                <span class="mdc-list-item__ripple"></span>
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+                <span class="mdc-list-item__text">Outgoing</span>
+            </a>
+            <a class="mdc-list-item" href="#">
+                <span class="mdc-list-item__ripple"></span>
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                <span class="mdc-list-item__text">Drafts</span>
+            </a>
+        </nav>
+    </div>
+</aside>
+
+<div class="mdc-drawer-scrim"></div>
+
+<!-- Header -->
+<header class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="hamburger material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                aria-label="Open navigation menu">menu</button>
+            <span onclick="resetTabs()" class="mdc-top-app-bar__title homebutton">Home</span>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                aria-label="Search">search</button>
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                aria-label="Options">more_vert</button>
+        </section>
+    </div>
+</header>
+
+<main class="mdc-top-app-bar--fixed-adjust">
+    <div class="mdc-tab-bar" role="tablist">
+        <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+                <div class="mdc-tab-scroller__scroll-content">
+                    <button onclick="filter('viral')" class="mdc-tab" role="tab" aria-selected="false" tabindex="0" >
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__icon material-icons" aria-hidden="true">explore</span>
+                            <span class="mdc-tab__text-label">Viral</span>
+                        </span>
+                        <span class="mdc-tab-indicator">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button onclick="filter('fat')" class="mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__icon material-icons" aria-hidden="true">thumb_down</span>
+                            <span class="mdc-tab__text-label">Dik</span>
+                        </span>
+                        <span class="mdc-tab-indicator">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button onclick="filter('outside')" class="mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__icon material-icons" aria-hidden="true">park</span>
+                            <span class="mdc-tab__text-label">Buut'n</span>
+                        </span>
+                        <span class="mdc-tab-indicator">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="mdc-image-list mdc-image-list--masonry my-masonry-image-list">
+        <li class="outside mdc-image-list__item">
+            <img class="mdc-image-list__image" src="images/Hamster1.jpg" title="Hamster 1">
+        </li>
+        <li class="fat mdc-image-list__item">
+            <img class="mdc-image-list__image" src="images/Hamster7.jpeg" title="Hamster 2">
+        </li>
+        <li class="viral mdc-image-list__item">
+            <img class="mdc-image-list__image" src="images/Hamster6.jpg" title="Hamster 3">
+        </li>
+        <li class="outside mdc-image-list__item">
+            <img class="mdc-image-list__image" src="images/Hamster2.jpg" title="Hamster 4">
+        </li>
+        <li class="fat mdc-image-list__item">
+            <img class="mdc-image-list__image" src="images/Hamster5.webp" title="Hamster 5">
+        </li>
+        <li class="viral mdc-image-list__item">
+            <img class="mdc-image-list__image" src="images/Hamster3.jpg" title="Hamster 6">
+        </li>
+        <li class="outside mdc-image-list__item">
+            <img class="mdc-image-list__image" src="images/Hamster4.jpg" title="Hamster 7">
+        </li>
+    </ul>
+
+</main>
+
+<!-- Sheet -->
+<section class="sheet sheet-out-of-view">
+<header class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button id="close-button" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                aria-label="Open navigation menu">close</button>
+            <span class="mdc-top-app-bar__title homebutton" id="header"></span>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                aria-label="Search">share</button>
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                aria-label="Options">more_vert</button>
+        </section>
+    </div>
+</header>
+    <main class="mdc-top-app-bar--fixed-adjust">
+        <img src="" alt="Hamster">
+    </main>
+
+    <footer>
+        <div class="mdc-top-app-bar__row">
+            <section class="action-buttons mdc-top-app-bar__section mdc-top-app-bar__section--align-center" role="toolbar">
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">thumb_up</button>
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">favorite</button>
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">thumb_down</button>
+            </section>
+        </div>
+    </footer>
+</section>
+
+</body>
+
+</html>
