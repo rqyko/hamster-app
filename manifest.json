@@ -1,12 +1,12 @@
 {
-  "name": "Hamster App",
-  "short_name": "Hamsters",
-  "theme_color": "#e84855",
-  "background_color": "#fff",
-  "display": "fullscreen",
+  "name": "LLORET 2024",
+  "short_name": "Lloret",
+  "theme_color": "#00a6fb",
+  "background_color": "#00a6fb",
+  "display": "browser",
   "orientation": "portrait",
   "scope": "/",
-  "start_url": "/hamsterapp",
+  "start_url": "/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",

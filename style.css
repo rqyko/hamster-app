@@ -1,8 +1,22 @@
 :root {
-    --mdc-theme-primary: #E84855;}
+    --mdc-theme-primary: #00a6fb;
+}
 
 body {
+    background-color: #edf2fb;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Top app bar */
+.mdc-top-app-bar {
+    background-image: linear-gradient(90deg, rgba(0, 0, 255, 1) 0%, rgba(0, 205, 255, 1) 100%);
+    position: sticky;
+    top: 0 !important;
+}
+
+.mdc-top-app-bar--fixed-adjust {
+    background-color: #edf2fb;
 }
 
 .logo {
@@ -22,11 +36,11 @@ body {
     margin-bottom: 1em;
 }
 
-/* CSS for sheet */
+/* Sheet (detailweergave) */
 .sheet {
     position: absolute;
     top: 0;
-    width:  100vw;
+    width: 100vw;
     margin-left: 0;
     background-color: #2e2e2e;
     transition: 0.3s ease;
@@ -50,7 +64,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: var(--mdc-theme-primary)
+    background-color: var(--mdc-theme-primary);
 }
 
 footer .mdc-tab__icon {
@@ -62,4 +76,124 @@ footer .mdc-tab__icon {
     justify-content: space-around;
     color: white;
 }
-/* CSS for sheet */
+
+/* Full width */
+.full-width {
+    width: 90%;
+    margin-top: 1em;
+}
+
+.data-button {
+    margin-bottom: 1em;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Beer image */
+.beer-image {
+    height: 100px;
+    width: 50px;
+    margin-top: 4px;
+    object-fit: cover;
+}
+
+/* Tab bar */
+.mdc-tab-bar {
+    position: fixed;
+    bottom: -1px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.mdc-tab-indicator .mdc-tab-indicator__content--underline {
+    border-top-width: 4px;
+}
+
+.mdc-data-table {
+    margin-top: 1em;
+    display: none;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.info-container img {
+    max-width: 150px;
+}
+
+.weatherforecast-tomorrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background-color: #edf2fb;
+}
+
+.city-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 16px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.city-date {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.temp-range {
+    font-size: 1rem;
+    color: #666666;
+}
+
+.weather-info {
+    text-align: center;
+}
+
+.food-suggestion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 6px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+}
+
+.food-suggestion img {
+    width: 220px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.food-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}

@@ -4,8 +4,8 @@
     <!-- Vereiste meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0 user-scalable=0">
-    <title>Hamster</title>
-    <link rel="icon"] href="https://static.vecteezy.com/system/resources/previews/024/559/110/original/hamster-cute-free-png.png">
+    <title>Bier-o-matic</title>
+    <link rel="icon"] href="images/icons/icon-512x512.png">
 
     <!-- Material.io bestanden (CSS & Font/icons)-->
     <!-- Uitleg werking componenents: https://material.io/components?platform=web -->
@@ -33,81 +33,88 @@
 </head>
 
 <body>
-<aside class="mdc-drawer mdc-drawer--modal">
-    <div class="mdc-drawer__content">
-        <nav class="mdc-list">
-            <div class="mdc-drawer__header">
-                <img src="https://static.vecteezy.com/system/resources/previews/026/748/785/original/cute-little-hamster-png.png" class="mdc-drawer__header-logo logo" alt="Material Components Web">
-                <h3 class="mdc-drawer__title">Hamster</h3>
-                <h6 class="mdc-drawer__subtitle">opperbaas@hamsterhelpdesk.nl</h6>
-            </div>
-            <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0">
-                <span class="mdc-list-item__ripple"></span>
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-                <span class="mdc-list-item__text">Inbox</span>
-            </a>
-            <a class="mdc-list-item" href="#">
-                <span class="mdc-list-item__ripple"></span>
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-                <span class="mdc-list-item__text">Outgoing</span>
-            </a>
-            <a class="mdc-list-item" href="#">
-                <span class="mdc-list-item__ripple"></span>
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-                <span class="mdc-list-item__text">Drafts</span>
-            </a>
-        </nav>
-    </div>
-</aside>
-
-<div class="mdc-drawer-scrim"></div>
+<!-- <div class="mdc-drawer-scrim"></div> -->
 
 <!-- Header -->
 <header class="mdc-top-app-bar">
     <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <button class="hamburger material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-                aria-label="Open navigation menu">menu</button>
-            <span onclick="resetTabs()" class="mdc-top-app-bar__title homebutton">Home</span>
-        </section>
+            <span onclick="toggle('beer')" class="mdc-top-app-bar__title homebutton">Bier-o-matic 3000</span>
+        </section>  
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-                aria-label="Search">search</button>
-            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-                aria-label="Options">more_vert</button>
+            
         </section>
     </div>
 </header>
 
+<!-- Beer view -->
+<div class="beer" style="display: flex; flex-direction: column; align-items: center;">
+    <!-- <button class="full-width data-button" onclick="zoek()">Haal data op</button> -->
+
+    <div class="mdc-data-table full-width" style="margin-bottom: 16px">
+        <div class="mdc-data-table__table-container">
+            <table class="mdc-data-table__table">
+                <thead>
+                    <tr class="mdc-data-table__header-row">
+                        <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader"
+                            scope="col"><b>Tijd</b></th>
+                        <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader"
+                            scope="col"><b> Temp</b></th>
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Aantal</b></th>
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Wat?</b></th>
+                    </tr>
+                </thead>
+
+                <tbody class="mdc-data-table__content text-center">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Temperature view -->
+<div class="temperature">
+    <div class="weatherforecast-tomorrow">
+    </div>
+</div>
+
+<!-- Notification view -->
+<div class="food">
+    <p class="weather-info"></p>
+    <div class="food-suggestions"></div>
+</div>
+
+<!-- Tab bar -->
 <main class="mdc-top-app-bar--fixed-adjust">
     <div class="mdc-tab-bar" role="tablist">
         <div class="mdc-tab-scroller">
             <div class="mdc-tab-scroller__scroll-area">
                 <div class="mdc-tab-scroller__scroll-content">
-                    <button onclick="filter('viral')" class="mdc-tab" role="tab" aria-selected="false" tabindex="0" >
+                    <button onclick="toggle('beer')" class="mdc-tab mdc-tab--active" role="tab" aria-selected="false" tabindex="0">
                         <span class="mdc-tab__content">
-                            <span class="mdc-tab__icon material-icons" aria-hidden="true">explore</span>
-                            <span class="mdc-tab__text-label">Viral</span>
+                            <span class="mdc-tab__icon material-icons" aria-hidden="true">sports_bar</span>
+                            <span class="mdc-tab__text-label">Bier</span>
+                        </span>
+                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button onclick="toggle('temperature')" class="mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__icon material-icons" aria-hidden="true">thermostat</span>
+                            <span class="mdc-tab__text-label">Weer</span>
                         </span>
                         <span class="mdc-tab-indicator">
                             <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
                         </span>
                         <span class="mdc-tab__ripple"></span>
                     </button>
-                    <button onclick="filter('fat')" class="mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                    <button onclick="toggle('food')" class="mdc-tab" role="tab" aria-selected="false" tabindex="0">
                         <span class="mdc-tab__content">
-                            <span class="mdc-tab__icon material-icons" aria-hidden="true">thumb_down</span>
-                            <span class="mdc-tab__text-label">Dik</span>
-                        </span>
-                        <span class="mdc-tab-indicator">
-                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                        </span>
-                        <span class="mdc-tab__ripple"></span>
-                    </button>
-                    <button onclick="filter('outside')" class="mdc-tab" role="tab" aria-selected="false" tabindex="0">
-                        <span class="mdc-tab__content">
-                            <span class="mdc-tab__icon material-icons" aria-hidden="true">park</span>
-                            <span class="mdc-tab__text-label">Buut'n</span>
+                            <span class="mdc-tab__icon material-icons" aria-hidden="true">restaurant</span>
+                            <span class="mdc-tab__text-label">Eten</span>
                         </span>
                         <span class="mdc-tab-indicator">
                             <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -118,59 +125,35 @@
             </div>
         </div>
     </div>
-    <ul class="mdc-image-list mdc-image-list--masonry my-masonry-image-list">
-        <li class="outside mdc-image-list__item">
-            <img class="mdc-image-list__image" src="https://www.zooplus.nl/magazine/wp-content/uploads/2019/10/race-de-hamster.jpg" title="Hamster 1">
-        </li>
-        <li class="fat mdc-image-list__item">
-            <img class="mdc-image-list__image" src="https://i.redd.it/is-my-dwarf-hamster-overweight-v0-netchjpfxdfa1.jpg?width=2827&format=pjpg&auto=webp&s=5efca92497f8478b6aa2b3b3e4543fd846c51293" title="Hamster 2">
-        </li>
-        <li class="viral mdc-image-list__item">
-            <img class="mdc-image-list__image" src="https://i.pinimg.com/736x/ba/8d/3b/ba8d3bdd8e3ba9335d3c28bd351ce183.jpg" title="Hamster 3">
-        </li> 
-        <li class="fat mdc-image-list__item">
-            <img class="mdc-image-list__image" src="https://images.ctfassets.net/pjshm78m9jt4/149854_header/5e77691830394812ade16b026ad5fdb6/importedImage149854_header?fm=jpg&fit=fill&w=1600&q=80" title="Hamster 5">
-        </li>
-        <li class="outside mdc-image-list__item">
-            <img class="mdc-image-list__image" src="https://www.hamsterwelfare.com/wp-content/uploads/2021/07/hamster-outside-on-grass.jpg" title="Hamster 4">
-        </li>
-        <li class="viral mdc-image-list__item">
-            <img class="mdc-image-list__image" src="https://t4.ftcdn.net/jpg/07/17/72/39/360_F_717723901_qCU5SkjHGW8kaW986IJDGYxYU24d03Q4.jpg"
-                title="Hamster 6">
-        </li>
-        <li class="outside mdc-image-list__item">
-            <img class="mdc-image-list__image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6b6X1lzO1DIzsX_t8zRAZHMW2o4BZFfts8eNo3f2BXA&s" title="Hamster 7">
-        </li>
-    </ul>
 </main>
 
 <!-- Sheet -->
 <section class="sheet sheet-out-of-view">
-<header class="mdc-top-app-bar">
-    <div class="mdc-top-app-bar__row">
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <button id="close-button" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-                aria-label="Open navigation menu">close</button>
-            <span class="mdc-top-app-bar__title homebutton" id="header"></span>
-        </section>
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-                aria-label="Search">share</button>
-            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-                aria-label="Options">more_vert</button>
-        </section>
-    </div>
-</header>
+    <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button onclick="closeSheet()" id="close-button" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                    aria-label="Open navigation menu">close</button>
+                <span class="mdc-top-app-bar__title homebutton" id="header"></span>
+            </section>
+            
+        </div>
+    </header>
     <main class="mdc-top-app-bar--fixed-adjust">
-        <img src="" alt="Hamster">
+        <div class="info-container">
+            <img src="" alt="" >
+            <div class="">
+                <h2 id="title"></h2>
+                <p id="description"></p>
+                <p id="price"></p>
+            </div>
+        </div>
     </main>
 
     <footer>
         <div class="mdc-top-app-bar__row">
-            <section class="action-buttons mdc-top-app-bar__section mdc-top-app-bar__section--align-center" role="toolbar">
-                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">thumb_up</button>
-                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">favorite</button>
-                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">thumb_down</button>
+            <section class="action-buttons mdc-top-app-bar__section mdc-top-app-bar__section--align-center"
+                role="toolbar">
             </section>
         </div>
     </footer>
