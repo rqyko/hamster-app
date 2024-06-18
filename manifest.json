@@ -3,7 +3,7 @@
   "short_name": "Lloret",
   "theme_color": "#00a6fb",
   "background_color": "#00a6fb",
-  "display": "browser",
+  "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
